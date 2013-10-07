@@ -1,0 +1,9 @@
+<?php
+
+namespace Anh\Bundle\PagerBundle\Adapter;
+
+interface PagerAdapterInterface
+{
+    public function getTotalRowsCount();
+    public function getResult($offset, $limit);
+}

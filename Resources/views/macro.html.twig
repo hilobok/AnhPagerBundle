@@ -1,0 +1,19 @@
+{% macro stylesheets() %}
+    {% stylesheets
+        '@AnhPagerBundle/Resources/vendor/paginator3001/paginator3000.css'
+    %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
+{% endmacro %}
+
+{% macro javascripts() %}
+    {% javascripts
+        '@AnhPagerBundle/Resources/vendor/paginator3001/paginator3000.js'
+    %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
+{% endmacro %}
+
+{% macro init(id, pager, url) %}
+    {% if pager.pagesCount() > 1 %}
+        <script>
+            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ anh_pager_pages_span }}, {{ pager.getCurrentPage() }}, '{{ url }}');
+        </script>
+    {% endif %}
+{% endmacro %}

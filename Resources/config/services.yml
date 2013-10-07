@@ -1,0 +1,6 @@
+parameters:
+    anh_pager.pager.class: Anh\Bundle\PagerBundle\Pager
+
+services:
+    anh_pager.pager:
+        class: %anh_pager.pager.class%
