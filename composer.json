@@ -1,0 +1,32 @@
+{
+    "name": "anh/pager-bundle",
+    "type": "symfony-bundle",
+    "description": "Pager bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrew Hilobok",
+            "email": "hilobok@gmail.com"
+        }
+    ],
+
+    "require": {
+    },
+
+    "minimum-stability": "stable",
+
+    "autoload": {
+        "psr-0": {
+            "Anh\\Bundle\\PagerBundle": ""
+        }
+    },
+
+    "target-dir": "Anh/Bundle/PagerBundle",
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
+
