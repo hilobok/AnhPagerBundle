@@ -61,6 +61,11 @@ class Pager
         return $this->result;
     }
 
+    public function isEmpty()
+    {
+        return $this->getTotalRowsCount() === 0;
+    }
+
     public function getCurrentPage()
     {
         return $this->currentPage;
