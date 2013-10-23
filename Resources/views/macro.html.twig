@@ -10,10 +10,10 @@
     %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
 {% endmacro %}
 
-{% macro init(id, pager, url) %}
+{% macro init(id, pager) %}
     {% if pager.pagesCount() > 1 %}
         <script>
-            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ pager.getPagerLength() }}, {{ pager.getCurrentPage() }}, '{{ url }}');
+            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ pager.getPagerLength() }}, {{ pager.getCurrentPage() }}, '{{ pager.getUrl() }}');
         </script>
     {% endif %}
 {% endmacro %}

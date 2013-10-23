@@ -14,6 +14,11 @@ class Pager
      */
     protected $pagerLength;
 
+    /**
+     * Pagination url
+     */
+    protected $url;
+
     protected $adapter;
     protected $rowsPerPage;
     protected $currentPage;
@@ -29,6 +34,18 @@ class Pager
     public function getPagerLength()
     {
         return $this->pagerLength;
+    }
+
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getUrl()
+    {
+        return $this->url;
     }
 
     public function paginate($adapter, $currentPage, $rowsPerPage)
