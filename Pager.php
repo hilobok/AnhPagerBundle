@@ -9,12 +9,27 @@ use Doctrine\ORM\Query;
 
 class Pager
 {
+    /**
+     * Number of pages which are visible at once
+     */
+    protected $pagerLength;
+
     protected $adapter;
     protected $rowsPerPage;
     protected $currentPage;
     protected $pagesCount;
     protected $totalRowsCount;
     protected $result;
+
+    public function __construct($pagerLength)
+    {
+        $this->pagerLength = $pagerLength;
+    }
+
+    public function getPagerLength()
+    {
+        return $this->pagerLength;
+    }
 
     public function paginate($adapter, $currentPage, $rowsPerPage)
     {

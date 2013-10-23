@@ -13,7 +13,7 @@
 {% macro init(id, pager, url) %}
     {% if pager.pagesCount() > 1 %}
         <script>
-            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ anh_pager_pages_span }}, {{ pager.getCurrentPage() }}, '{{ url }}');
+            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ pager.getPagerLength() }}, {{ pager.getCurrentPage() }}, '{{ url }}');
         </script>
     {% endif %}
 {% endmacro %}
