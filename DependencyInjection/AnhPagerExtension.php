@@ -1,6 +1,6 @@
 <?php
 
-namespace Anh\Bundle\PagerBundle\DependencyInjection;
+namespace Anh\PagerBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

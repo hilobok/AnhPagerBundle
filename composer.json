@@ -17,11 +17,11 @@
 
     "autoload": {
         "psr-0": {
-            "Anh\\Bundle\\PagerBundle": ""
+            "Anh\\PagerBundle": ""
         }
     },
 
-    "target-dir": "Anh/Bundle/PagerBundle",
+    "target-dir": "Anh/PagerBundle",
 
     "extra": {
         "branch-alias": {

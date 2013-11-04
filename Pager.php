@@ -1,9 +1,9 @@
 <?php
 
-namespace Anh\Bundle\PagerBundle;
+namespace Anh\PagerBundle;
 
-use Anh\Bundle\PagerBundle\Adapter\PagerAdapterInterface;
-use Anh\Bundle\PagerBundle\Adapter\DoctrineOrmAdapter;
+use Anh\PagerBundle\Adapter\PagerAdapterInterface;
+use Anh\PagerBundle\Adapter\DoctrineOrmAdapter;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\Query;
 

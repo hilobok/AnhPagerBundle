@@ -1,6 +1,6 @@
 parameters:
     anh_pager.pager_length: 10
-    anh_pager.pager.class: Anh\Bundle\PagerBundle\Pager
+    anh_pager.pager.class: Anh\PagerBundle\Pager
 
 services:
     anh_pager.pager:

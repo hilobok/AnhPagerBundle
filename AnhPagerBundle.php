@@ -1,6 +1,6 @@
 <?php
 
-namespace Anh\Bundle\PagerBundle;
+namespace Anh\PagerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

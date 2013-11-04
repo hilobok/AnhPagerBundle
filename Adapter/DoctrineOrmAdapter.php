@@ -1,6 +1,6 @@
 <?php
 
-namespace Anh\Bundle\PagerBundle\Adapter;
+namespace Anh\PagerBundle\Adapter;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
