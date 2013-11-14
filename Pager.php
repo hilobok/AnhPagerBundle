@@ -63,7 +63,7 @@ class Pager
         $this->totalRowsCount = null;
         $this->result = null;
 
-        return $this;
+        return clone $this;
     }
 
     public function getPagesCount()
