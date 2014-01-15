@@ -2,6 +2,6 @@
     "name": "AnhPagerBundle",
     "private": true,
     "dependencies": {
-        "paginator3001": "~0.0.2"
+        "paginator3001": "~0.0.3"
     }
 }

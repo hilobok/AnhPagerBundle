@@ -31,6 +31,16 @@ class Pager
         $this->pagerLength = $pagerLength;
     }
 
+    public function getOptions()
+    {
+        return array(
+            'pagesCount' => $this->getPagesCount(),
+            'pagerLength' => $this->getPagerLength(),
+            'currentPage' => $this->getCurrentPage(),
+            'url' => $this->getUrl()
+        );
+    }
+
     public function getPagerLength()
     {
         return $this->pagerLength;
@@ -43,17 +53,27 @@ class Pager
         return $this;
     }
 
-    public function getUrl()
+    public function getUrl($page = null)
     {
+        if (!is_null($page)) {
+            if (strpos($this->url, '{page}') !== false) {
+                return str_replace('{page}', $page, $this->url);
+            } else {
+                return sprintf('%s%s', $this->url, $page);
+            }
+        }
+
         return $this->url;
     }
 
-    public function paginate($adapter, $currentPage, $rowsPerPage)
+    public function paginate($data, $currentPage, $rowsPerPage)
     {
-        $this->adapter = $this->guessAdapter($adapter);
+        $this->adapter = $this->guessAdapter($data);
 
         if (!$this->adapter instanceof PagerAdapterInterface) {
-            throw new \InvalidArgumentException('Parameter $adapter should be instance of PagerAdapterInterface.');
+            throw new \InvalidArgumentException(
+                sprintf("Unable to guess adapter for '%s'.", is_object($data) ? get_class($data) : gettype($data))
+            );
         }
 
         $this->currentPage = $currentPage;
@@ -87,7 +107,10 @@ class Pager
     public function getResult()
     {
         if ($this->result === null) {
-            $this->result = $this->adapter->getResult(($this->currentPage - 1) * $this->rowsPerPage, $this->rowsPerPage);
+            $this->result = $this->adapter->getResult(
+                ($this->currentPage - 1) * $this->rowsPerPage,
+                $this->rowsPerPage
+            );
         }
 
         return $this->result;
@@ -108,14 +131,14 @@ class Pager
         return $this->rowsPerPage;
     }
 
-    protected function guessAdapter($adapter)
+    protected function guessAdapter($data)
     {
-        if ($adapter instanceof PagerAdapterInterface) {
-            return $adapter;
+        if ($data instanceof PagerAdapterInterface) {
+            return $data;
         }
 
-        if ($adapter instanceof QueryBuilder or $adapter instanceof Query) {
-            return new DoctrineOrmAdapter($adapter);
+        if ($data instanceof QueryBuilder or $data instanceof Query) {
+            return new DoctrineOrmAdapter($data);
         }
 
         return null;

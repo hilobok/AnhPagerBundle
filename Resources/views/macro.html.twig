@@ -1,19 +1,12 @@
-{% macro stylesheets() %}
-    {% stylesheets
-        '@AnhPagerBundle/Resources/vendor/paginator3001/paginator3000.css'
-    %}<link rel="stylesheet" href="{{ asset_url }}" />{% endstylesheets %}
-{% endmacro %}
-
-{% macro javascripts() %}
-    {% javascripts
-        '@AnhPagerBundle/Resources/vendor/paginator3001/paginator3000.js'
-    %}<script src="{{ asset_url }}"></script>{% endjavascripts %}
-{% endmacro %}
-
-{% macro init(id, pager) %}
-    {% if pager.pagesCount() > 1 %}
-        <script>
-            var pager_{{ id }} = new Paginator('{{ id }}', {{ pager.getPagesCount() }}, {{ pager.getPagerLength() }}, {{ pager.getCurrentPage() }}, '{{ pager.getUrl() }}');
-        </script>
+{% macro build(pager) %}
+    {% if pager.getPagesCount() > 1 %}
+        <div data-pager="{{ pager.getOptions()|json_encode }}"></div>
+        <noscript>
+            <ul>
+                {% for page in range(1, pager.getPagesCount()) %}
+                    <li><a href="{{ pager.getUrl(page) }}">{{ page }}</a></li>
+                {% endfor %}
+            </ul>
+        </noscript>
     {% endif %}
 {% endmacro %}

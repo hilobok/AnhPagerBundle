@@ -30,8 +30,27 @@ class AnhPagerExtension extends Extension implements PrependExtensionInterface
     public function prepend(ContainerBuilder $container)
     {
         $container->prependExtensionConfig('assetic', array(
+            'assets' => array(
+                'anh_pager_css' => array(
+                    'inputs' => array(
+                        'bundles/anhpager/components/paginator3001/paginator3000.css'
+                    )
+                ),
+                'anh_pager_js' => array(
+                    'inputs' => array(
+                        'bundles/anhpager/components/paginator3001/paginator3000.js',
+                        'bundles/anhpager/init.js'
+                    )
+                )
+            )
+        ));
+
+        $container->prependExtensionConfig('sp_bower', array(
+            'assetic' => array(
+                'enabled' => false
+            ),
             'bundles' => array(
-                'AnhPagerBundle'
+                'AnhPagerBundle' => null
             )
         ));
     }
