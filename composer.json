@@ -11,7 +11,7 @@
     ],
 
     "require": {
-        "sp/bower-bundle": "0.9.x-dev"
+        "sp/bower-bundle": "~0.9"
     },
 
     "minimum-stability": "stable",
