@@ -8,9 +8,10 @@ class DoctrineOrmAdapter implements PagerAdapterInterface
 {
     protected $paginator;
 
-    public function __construct($query, $fetchJoinCollection = true)
+    public function __construct($query, $fetchJoinCollection = true, $useOutputWalkers = false)
     {
         $this->paginator = new Paginator($query, $fetchJoinCollection);
+        $this->paginator->setUseOutputWalkers($useOutputWalkers);
     }
 
     public function getTotalRowsCount()
